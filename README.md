@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+# CipherNest - Secure Password Manager
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/0c365de9-4d69-4528-8826-31621c180456
+CipherNest is a secure password manager that utilizes RSA encryption to protect your sensitive information. It provides a user-friendly interface for storing, managing, and generating strong passwords. This application prioritizes security and offers persistent data storage for seamless access across sessions.
 
-## How can I edit this code?
+## Installation
 
-There are several ways of editing your application.
+1.  **Clone the repository:**
 
-**Use Lovable**
+    ```bash
+    git clone <repository_url>
+    cd ciphernest
+    ```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0c365de9-4d69-4528-8826-31621c180456) and start prompting.
+2.  **Install dependencies:**
 
-Changes made via Lovable will be committed automatically to this repo.
+    ```bash
+    npm install  # or yarn install or pnpm install
+    ```
 
-**Use your preferred IDE**
+## Usage
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1.  **Start the development server:**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+    ```bash
+    npm run dev # or yarn dev or pnpm dev
+    ```
 
-Follow these steps:
+2.  **Open the application in your browser:**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+    Navigate to the address provided by the development server (usually `http://localhost:5173`).
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3.  **Create an account or log in:**
 
-# Step 3: Install the necessary dependencies.
-npm i
+    Follow the on-screen instructions to set up your account or log in with existing credentials.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+4.  **Generate your RSA key pair:**
 
-**Edit a file directly in GitHub**
+    The application will guide you through generating your RSA key pair. This is crucial for encrypting and decrypting your passwords.  **Ensure you keep your private key secure!**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+5.  **Start managing your passwords:**
 
-**Use GitHub Codespaces**
+    Add, edit, and delete your passwords, organizing them into categories for easy access.  All passwords are encrypted using your RSA public key.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Features
 
-## What technologies are used for this project?
+*   **Secure Password Storage:** Passwords are encrypted using RSA encryption, ensuring confidentiality.
+*   **RSA Key Management:** Generate, regenerate, export, and import your RSA key pairs securely.
+*   **Password Generation:** Create strong, random passwords with customizable length and character sets.
+*   **Categorization:** Organize passwords into custom categories for efficient management.
+*   **Persistent Data Storage:** Password data and user settings are persisted across sessions using local storage.
+*   **User Authentication:** Secure user authentication with login, registration, and logout functionality.
+*   **Toast Notifications:**  Provides helpful notifications to guide the user through key operations and important system events.
+*   **Responsive Design:**  Adaptable UI for various screen sizes and devices.
 
-This project is built with:
+## Technologies Used
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+*   **Frontend:**
+    *   **React:** A JavaScript library for building user interfaces.
+    *   **TypeScript:** A superset of JavaScript that adds static typing.
+    *   **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
+    *   **Radix UI:** A set of unstyled, accessible React primitives for building high-quality user interfaces.
+    *   **Zustand:** A small, fast and scalable bearbones state-management solution.
+    *   **Vite:** A build tool that aims to provide a faster and leaner development experience for modern web projects.
+    *   **clsx:**  A tiny (228B) utility for constructing `className` strings conditionally and joining them with spaces.
+    *   **tailwind-merge:**  A tiny utility that merges Tailwind CSS classes based on Tailwind's cascading order.
+    *   **@hookform/resolvers:** A library for integrating form validation with React Hook Form.
+    *   **@radix-ui/react-accordion:** An accessible accordion component from Radix UI.
+    *   **@radix-ui/react-alert-dialog:** An accessible alert dialog component from Radix UI.
+    *   **@radix-ui/react-aspect-ratio:** An accessible aspect ratio component from Radix UI.
+    *   **@radix-ui/react-avatar:** An accessible avatar component from Radix UI.
+    *   ... *[List other @radix-ui components and relevant dependencies here]* ...
 
-## How can I deploy this project?
+*   **Styling:**
+    *   **CSS:** Cascading Style Sheets for styling the web application.
+    *   **PostCSS:** A tool for transforming CSS with plugins, including Tailwind CSS and Autoprefixer.
 
-Simply open [Lovable](https://lovable.dev/projects/0c365de9-4d69-4528-8826-31621c180456) and click on Share -> Publish.
+*   **Development Tools:**
+    *   **ESLint:** A JavaScript and TypeScript linter for identifying and fixing code quality issues.
 
-## Can I connect a custom domain to my Lovable project?
+*   **State Management:**
+    *   **Zustand:** A small, fast, and scalable bearbones state-management solution using simplified flux principles.
 
-Yes, you can!
+*   **Cryptography:**
+    *   **RSA Encryption:** Used for secure password storage. (Implementation details not explicitly in provided files, but implied)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Key Classes or Functions
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*   **`useToast` (src\hooks\use-toast.ts):** A React hook for managing and displaying toast notifications.
+*   **`toast` (src\hooks\use-toast.ts):** A function for triggering toast notifications.
+*   **`cn` (src\lib\utils.ts):** A utility function for combining and merging CSS class names.
+*   **`useAuthStore` (src\store\authStore.ts):** A Zustand store for managing authentication state (user, token, login/logout).
+*   **`useCryptoStore` (src\store\cryptoStore.ts):** A Zustand store for managing RSA key pairs and related operations (generation, encryption, decryption).
+*   **`usePasswordStore` (src\store\passwordStore.ts):** A Zustand store for managing passwords and categories.
